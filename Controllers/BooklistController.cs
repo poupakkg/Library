@@ -13,6 +13,7 @@ namespace Library.Controllers
     public class BooklistController : Controller
     {
         private readonly LibraryContext _context;
+        private string searchString;
 
         public BooklistController(LibraryContext context)
         {
@@ -20,8 +21,13 @@ namespace Library.Controllers
         }
 
         // GET: Booklist
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, string booklistGenre)
         {
+            // to get list of book by Genre by using LINQ
+            IQueryable<string> genreQuery = from m in _context.Booklist
+                                            orderby m.Genre
+                                            select m.Genre;
+
             var booklist = from m in _context.Booklist
                          select m;
 
@@ -29,16 +35,29 @@ namespace Library.Controllers
             {
                 booklist = booklist.Where(s => s.BookName.Contains(searchString));
             }
+            if (!string.IsNullOrEmpty(booklistGenre))
+            {
+                booklist = booklist.Where(x => x.Genre == booklistGenre);
+            }
 
+            var movieGenreVM = new BooklistGenreViewModel
+            {
+                Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                Booklist = await booklist.ToListAsync()
+            };
 
-            return View(await booklist.ToListAsync());
+            return View(movieGenreVM);
         }
 
-        [HttpPost]
-        public string Index(string searchString, bool notUsed)
-        {
-            return "From [HttpPost]Index: filter on " + searchString;
-        }
+
+        //return View(await booklist.ToListAsync());
+        // }
+
+        // [HttpPost]
+        // public string Index(string searchString, bool notUsed)
+        // {
+        //    return "From [HttpPost]Index: filter on " + searchString;
+        // }
 
         // GET: Booklist/Details/5
         public async Task<IActionResult> Details(int? id)
