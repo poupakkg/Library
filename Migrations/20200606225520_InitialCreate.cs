@@ -28,7 +28,7 @@ namespace Library.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BookName = table.Column<string>(nullable: true),
+                    BookName = table.Column<string>(nullable: false),
                     Author = table.Column<string>(nullable: true),
                     Genre = table.Column<string>(nullable: true)
                 },

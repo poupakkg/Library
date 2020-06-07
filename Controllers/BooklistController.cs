@@ -20,9 +20,24 @@ namespace Library.Controllers
         }
 
         // GET: Booklist
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Booklist.ToListAsync());
+            var booklist = from m in _context.Booklist
+                         select m;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                booklist = booklist.Where(s => s.BookName.Contains(searchString));
+            }
+
+
+            return View(await booklist.ToListAsync());
+        }
+
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
+        {
+            return "From [HttpPost]Index: filter on " + searchString;
         }
 
         // GET: Booklist/Details/5
