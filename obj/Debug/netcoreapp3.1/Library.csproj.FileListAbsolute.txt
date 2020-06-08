@@ -175,10 +175,10 @@ C:\Users\PC\Desktop\Library\Library\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore
 C:\Users\PC\Desktop\Library\Library\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\PC\Desktop\Library\Library\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 C:\Users\PC\Desktop\Library\Library\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Library.csproj.CoreCompileInputs.cache
-C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Library.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Razor\Views\User\Create.cshtml.g.cs
 C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Razor\Views\User\Delete.cshtml.g.cs
 C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Razor\Views\User\Details.cshtml.g.cs
 C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Razor\Views\User\Edit.cshtml.g.cs
 C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Razor\Views\User\Index.cshtml.g.cs
+C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Library.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Library.MvcApplicationPartsAssemblyInfo.cache

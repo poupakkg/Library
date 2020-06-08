@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Library.Controllers
 {
+       
        public class UserController : Controller
     {
         private readonly LibraryContext _context;
@@ -25,6 +26,7 @@ namespace Library.Controllers
             this.userManager = userManager;
             this.signInManager = signInManager;
         }
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
@@ -84,6 +86,7 @@ namespace Library.Controllers
 
         // GET: Users/Create
        
+        [AllowAnonymous]
         public IActionResult Create()
         {
             return View();
