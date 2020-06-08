@@ -1,5 +1,6 @@
 ﻿@model Library.Models.BooklistGenreViewModel
 
+
 @{
     ViewData["Title"] = "Books";
 }
@@ -12,6 +13,7 @@
 
 <form asp-controller="Booklist" asp-action="Index" method="get">
     <p>
+
         <select asp-for="BooklistGenre" asp-items="Model.Genres">
             <option value="">All</option>
         </select>

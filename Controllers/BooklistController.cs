@@ -7,13 +7,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Library.Controllers.Data;
 using Library.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Library.Controllers
 {
     public class BooklistController : Controller
     {
         private readonly LibraryContext _context;
-        private string searchString;
+        //private string searchString;
 
         public BooklistController(LibraryContext context)
         {
@@ -88,6 +89,7 @@ namespace Library.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,BookName,Author,Genre")] Booklist booklist)
         {
             if (ModelState.IsValid)
@@ -100,6 +102,8 @@ namespace Library.Controllers
         }
 
         // GET: Booklist/Edit/5
+        [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -120,6 +124,7 @@ namespace Library.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,BookName,Author,Genre")] Booklist booklist)
         {
             if (id != booklist.Id)
@@ -149,8 +154,9 @@ namespace Library.Controllers
             }
             return View(booklist);
         }
-
         // GET: Booklist/Delete/5
+        [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

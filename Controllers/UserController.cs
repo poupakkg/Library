@@ -7,17 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Library.Controllers.Data;
 using Library.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Library.Controllers
 {
-    public class UsersController : Controller
+       public class UserController : Controller
     {
         private readonly LibraryContext _context;
 
-        public UsersController(LibraryContext context)
+        public UserController(LibraryContext context)
         {
             _context = context;
         }
+        
+       
 
         // GET: Users
         public async Task<IActionResult> Index()
@@ -44,6 +47,7 @@ namespace Library.Controllers
         }
 
         // GET: Users/Create
+       
         public IActionResult Create()
         {
             return View();

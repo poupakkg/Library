@@ -17,9 +17,10 @@ namespace Library.Models
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
         public string Lastname { get; set; }
         [Required(ErrorMessage = "Please use the valid email address with @")]
+        [EmailAddress]
         public string Email { get; set; }
         [Required]
-        [MaxLength(15)]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }
