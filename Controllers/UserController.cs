@@ -17,11 +17,8 @@ namespace Library.Controllers
        public class UserController : Controller
     {
         private readonly LibraryContext _context;
-       // private readonly UserManager<IdentityUser> userManager;
-       //private readonly SignInManager<IdentityUser> signInManager;
-
-         
-        public UserController(LibraryContext context)
+            
+       public UserController(LibraryContext context)
             
         {
             _context = context;

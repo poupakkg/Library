@@ -38,11 +38,18 @@ namespace Library
                 options.Password.RequireDigit = true;
             })
               .AddEntityFrameworkStores<LibraryContext>()
-              .AddDefaultTokenProviders();
+              .AddDefaultTokenProviders()
+              .AddRoles<IdentityRole>();
 
             // Chnages token life span of all token types to 12 hrs
             services.Configure<DataProtectionTokenProviderOptions>(o =>
-                    o.TokenLifespan = TimeSpan.FromHours(12));          
+                    o.TokenLifespan = TimeSpan.FromHours(12));
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireManagerRole",
+                     policy => policy.RequireRole("Manager"));
+            });
 
             services.AddSingleton<IEmailSender, EmailSender>();
             services.AddRazorPages();
