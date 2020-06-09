@@ -5,11 +5,16 @@
     ViewData["Title"] = "Books";
 }
 
-<h1>Book List</h1>
+<h1 class=" text-center">Book List</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<div class="container">
+    <img src="~/images/images.png" alt="Cinque" position="topleft">
+    <div class="text-xl-left">Top Right</div>
+</div>
 
 <form asp-controller="Booklist" asp-action="Index" method="get">
     <p>
@@ -23,16 +28,16 @@
     </p>
 </form>
 
-<table class="table">
+<table class="table table-bordered table-hover table table-striped">
     <thead>
-        <tr>
-            <th>
+        <tr class=" bg-info text-white ">
+            <th class=" bg-info text-white ">
                 @Html.DisplayNameFor(model => model.Booklist[0].BookName)
             </th>
-            <th>
+            <th class=" bg-info text-white ">
                 @Html.DisplayNameFor(model => model.Booklist[0].Author)
             </th>
-            <th>
+            <th class=" bg-info text-white ">
                 @Html.DisplayNameFor(model => model.Booklist[0].Genre)
             </th>
             <th></th>

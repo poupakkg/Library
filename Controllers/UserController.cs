@@ -9,6 +9,7 @@ using Library.Controllers.Data;
 using Library.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace Library.Controllers
 {
@@ -16,50 +17,24 @@ namespace Library.Controllers
        public class UserController : Controller
     {
         private readonly LibraryContext _context;
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly SignInManager<IdentityUser> signInManager;
+       // private readonly UserManager<IdentityUser> userManager;
+       //private readonly SignInManager<IdentityUser> signInManager;
 
          
-        public UserController(LibraryContext context, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public UserController(LibraryContext context)
+            
         {
             _context = context;
-            this.userManager = userManager;
-            this.signInManager = signInManager;
         }
-        [AllowAnonymous]
-        [HttpPost]
-        public async Task<IActionResult> Logout()
+
+        public class EmailSender : IEmailSender
         {
-            await signInManager.SignOutAsync();
-            return RedirectToAction("index", "home");
-        }
-        [HttpGet]
-        public new IActionResult User()
-        {
-            return View();
-        }
-       
-        [HttpPost]
-        public new async Task <IActionResult> User(User model)
-        {
-            if (ModelState.IsValid)
+            public Task SendEmailAsync(string email, string subject, string message)
             {
-                var user = new IdentityUser { UserName = model.Email, Email = model.Email };
-                var result = await userManager.CreateAsync(user, model.Password);
-
-                if (result.Succeeded)
-                {
-                    await signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("index", "home");
-                }
-                foreach(var error in result.Errors)
-                {
-                    ModelState.AddModelError("", error.Description);
-                }
+                return Task.CompletedTask;
             }
-            return View(model);
         }
-
+                        
         // GET: Users
         public async Task<IActionResult> Index()
         {
