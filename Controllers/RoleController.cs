@@ -13,11 +13,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Library.Controllers
 {
-    [Authorize("Admin")]
+    
     public class RoleController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
-        private readonly UserManager<IdentityRole> userManager;
+        private readonly UserManager<IdentityUser> userManager;
 
         public RoleController(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
 
@@ -63,6 +63,31 @@ namespace Library.Controllers
             return View(roles);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> EditRole(string id)
+        {
+            var role = await roleManager.FindByIdAsync(id);
+
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {id} can not be found";
+                return View("NotFound");
+            }
+            var model = new EditRoleViewModel
+            {
+                Id = role.Id,
+                RoleName = role.Name
+            };
+
+            foreach (var user in userManager.Users)
+            {
+                if (await userManager.IsInRoleAsync(user, role.Name))
+                {
+                    model.Users.Add(user.UserName);
+                }
+            }
+            return View(model);
+        }
 
         [HttpPost]
         public async Task<IActionResult> EditRole(EditRoleViewModel model)
@@ -78,13 +103,14 @@ namespace Library.Controllers
             {
                 role.Name = model.RoleName;
                 var result = await roleManager.UpdateAsync(role);
+
                 if (result.Succeeded)
                 {
                     return RedirectToAction("ListRoles");
                 }
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError("", error, Description);
+                    ModelState.AddModelError("", error.Description);
                 }
                 return View(model);
             }
@@ -114,11 +140,11 @@ namespace Library.Controllers
 
                 if (await userManager.IsInRoleAsync(user, role.Name))
                 {
-                    UserRoleViewModel.IsSelected = true;
+                    userRoleViewModel.IsSelected = true;
                 }
                 else
                 {
-                    UserRoleViewModel.IsSelected = false;
+                    userRoleViewModel.IsSelected = false;
                 }
                 model.Add(userRoleViewModel);
             }
@@ -161,6 +187,7 @@ namespace Library.Controllers
                         return RedirectToAction("EditRole", new { Id = roleId });
                 }
             }
+            return View(role);
         }
     }
 }
