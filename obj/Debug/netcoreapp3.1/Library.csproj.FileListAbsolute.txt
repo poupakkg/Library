@@ -200,3 +200,5 @@ C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Library.csproj.CoreC
 C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Library.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Library.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Razor\Views\Role\CreateRole.cshtml.g.cs
+C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Razor\Views\Role\ListRoles.cshtml.g.cs
+C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Razor\Views\Role\EditRole.cshtml.g.cs

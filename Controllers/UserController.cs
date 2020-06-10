@@ -164,5 +164,12 @@ namespace Library.Controllers
         {
             return _context.User.Any(e => e.UserId == id);
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
     }
 }

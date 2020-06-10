@@ -88,8 +88,8 @@ namespace Library.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize]
+       
+       
         public async Task<IActionResult> Create([Bind("Id,BookName,Author,Genre")] Booklist booklist)
         {
             if (ModelState.IsValid)
@@ -102,8 +102,8 @@ namespace Library.Controllers
         }
 
         // GET: Booklist/Edit/5
-        [ValidateAntiForgeryToken]
-        [Authorize]
+       
+       
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -123,8 +123,8 @@ namespace Library.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize]
+      
+      
         public async Task<IActionResult> Edit(int id, [Bind("Id,BookName,Author,Genre")] Booklist booklist)
         {
             if (id != booklist.Id)
@@ -155,8 +155,7 @@ namespace Library.Controllers
             return View(booklist);
         }
         // GET: Booklist/Delete/5
-        [ValidateAntiForgeryToken]
-        [Authorize]
+        
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -176,7 +175,7 @@ namespace Library.Controllers
 
         // POST: Booklist/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var booklist = await _context.Booklist.FindAsync(id);
