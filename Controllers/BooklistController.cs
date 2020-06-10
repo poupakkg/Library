@@ -79,6 +79,7 @@ namespace Library.Controllers
         }
 
         // GET: Booklist/Create
+        [Authorize("Admin")]
         public IActionResult Create()
         {
             return View();
@@ -102,8 +103,8 @@ namespace Library.Controllers
         }
 
         // GET: Booklist/Edit/5
-       
-       
+
+        [Authorize("Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -155,7 +156,7 @@ namespace Library.Controllers
             return View(booklist);
         }
         // GET: Booklist/Delete/5
-        
+        [Authorize("Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
