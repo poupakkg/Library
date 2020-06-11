@@ -47,6 +47,10 @@
             @RenderBody()
         </main>
     </div>
+    @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Script", required: true)
+    }
 
     <footer class="border-top footer text-muted">
         <div class="container">

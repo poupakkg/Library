@@ -190,9 +190,41 @@ namespace Library.Controllers
 
 
             return RedirectToAction("EditRole", new { Id = roleId });
-        }                
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteRole(string id)
+        {
+            var role = await roleManager.FindByIdAsync(id);
+            if(role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {id} Cannot be found";
+                    return View("Not Found");
+            }
+            else
+            {
+             var result = await roleManager.DeleteAsync(role);
+             if(result.Succeeded)
+             {
+                    return RedirectToAction("ListRoles");
+             }
+             foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+                return View("ListRoles");
+            }
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
     }
 }
 
-    
+  
+
 

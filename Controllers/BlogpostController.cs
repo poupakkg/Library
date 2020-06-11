@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Library.Controllers.Data;
 using Library.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Library.Controllers
 {
+    //[Authorize("Admin")]
     public class BlogpostController : Controller
     {
         private readonly LibraryContext _context;
@@ -42,7 +44,7 @@ namespace Library.Controllers
 
             return View(blogpost);
         }
-
+        [AllowAnonymous]
         // GET: Blogpost/Create
         public IActionResult Create()
         {
@@ -54,6 +56,7 @@ namespace Library.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public async Task<IActionResult> Create([Bind("BlogId,Subject,Text,Posted")] Blogpost blogpost)
         {
             if (ModelState.IsValid)

@@ -213,3 +213,4 @@ C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Razor\Areas\Identity
 C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Index.cshtml.g.cs
 C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
 C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
+C:\Users\PC\Desktop\Library\Library\obj\Debug\netcoreapp3.1\Razor\Views\Shared\AccessDenied.cshtml.g.cs

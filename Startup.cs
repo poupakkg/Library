@@ -51,7 +51,6 @@ namespace Library
             });
 
             services.AddSingleton<IEmailSender, EmailSender>();
-           // services.AddSingleton<IAuthorizationHandler, UserAdministratorsAuthorizationHandler>();
             services.AddRazorPages();
             services.AddScoped<TokenProvider>();
         }
