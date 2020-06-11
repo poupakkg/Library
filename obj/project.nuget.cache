@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "40KPpmDO9gmBkKS5+inYtBzw8qDzAg2RKFWDYfzeXHX6e+j+Fi5JoTfffVPQjqzvBIlaR8Lg+Sas4kZzcwek4A==",
+  "dgSpecHash": "fWBQmCfdASUUfHDUkTk+bfYjvUFmGfd0B9tzdhvtCiwwodEi1wPrdxpkHVcRN4VdiV0vCnBCNqGBEC7gbwGuuw==",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\Desktop\\Library\\Library\\Library.csproj",
   "expectedPackageFiles": [
@@ -86,6 +86,7 @@
     "C:\\Users\\PC\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\sendgrid\\9.16.0\\sendgrid.9.16.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.2\\sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\sqlitepclraw.core\\2.0.2\\sqlitepclraw.core.2.0.2.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.2\\sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",

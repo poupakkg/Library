@@ -10,17 +10,16 @@ namespace Library.Models
     {
         [Key]
         public int UserId { get; set; }
-        [Required]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+        [Required]       
         public string FirstName { get; set; }
-        [Required]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+        [Required]        
         public string Lastname { get; set; }
         [Required(ErrorMessage = "Please use the valid email address with @")]
         [EmailAddress]
         public string Email { get; set; }
         [Required]
         [DataType(DataType.Password)]
+        [MaxLength(10)]
         public string Password { get; set; }
        
     }

@@ -187,8 +187,10 @@ namespace Library.Controllers
                         return RedirectToAction("EditRole", new { Id = roleId });
                 }
             }
-            return View(role);
-        }
+
+
+            return RedirectToAction("EditRole", new { Id = roleId });
+        }                
     }
 }
 

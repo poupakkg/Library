@@ -36,11 +36,11 @@ namespace Library
             {
                 options.SignIn.RequireConfirmedAccount = true;
             })
-              .AddEntityFrameworkStores<LibraryContext>()
-              .AddDefaultTokenProviders()
+             .AddEntityFrameworkStores<LibraryContext>()
+             .AddDefaultTokenProviders()
               .AddRoles<IdentityRole>();
 
-            // Chnages token life span of all token types to 12 hrs
+            // Chanages token life span of all token types to 12 hrs
             services.Configure<DataProtectionTokenProviderOptions>(o =>
                     o.TokenLifespan = TimeSpan.FromHours(12));
 

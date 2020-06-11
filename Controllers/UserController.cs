@@ -68,7 +68,7 @@ namespace Library.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+       
         public async Task<IActionResult> Create([Bind("UserId,FirstName,Lastname,Email,Password")] User user)
         {
             if (ModelState.IsValid)
@@ -151,7 +151,7 @@ namespace Library.Controllers
 
         // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+       
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var user = await _context.User.FindAsync(id);
@@ -166,7 +166,7 @@ namespace Library.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        
         public IActionResult AccessDenied()
         {
             return View();
