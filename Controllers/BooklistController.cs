@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Library.Controllers
 {
+    //[Authorize("Admin")]
     public class BooklistController : Controller
     {
         private readonly LibraryContext _context;
@@ -20,7 +21,7 @@ namespace Library.Controllers
         {
             _context = context;
         }
-
+        [AllowAnonymous]
         // GET: Booklist
         public async Task<IActionResult> Index(string searchString, string booklistGenre)
         {
@@ -49,17 +50,7 @@ namespace Library.Controllers
 
             return View(movieGenreVM);
         }
-
-
-        //return View(await booklist.ToListAsync());
-        // }
-
-        // [HttpPost]
-        // public string Index(string searchString, bool notUsed)
-        // {
-        //    return "From [HttpPost]Index: filter on " + searchString;
-        // }
-
+        [AllowAnonymous]
         // GET: Booklist/Details/5
         public async Task<IActionResult> Details(int? id)
         {

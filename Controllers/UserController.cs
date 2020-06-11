@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace Library.Controllers
 {
-       
+       //[Authorize("Admin")]
        public class UserController : Controller
     {
         private readonly LibraryContext _context;
